@@ -15,7 +15,8 @@ hr {
   width: 100%;
 }
 
-.sidebar-top {
+.sidebar-top,
+.sidebar-down {
   display: flex;
   align-items: center;
   justify-content: center;
