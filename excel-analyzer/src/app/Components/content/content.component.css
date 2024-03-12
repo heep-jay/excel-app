@@ -161,6 +161,9 @@
   .output-box {
     flex-direction: column;
   }
+  .double_input {
+    flex-direction: column;
+  }
   .left-output,
   .right-output {
     flex: 1;
