@@ -3,7 +3,7 @@ Certainly! Here's an example README.md file for your application:
 
 markdown
 Copy code
-# Excel File Processor
+# Excel File Analyzer
 
 This application is designed to process Excel files (.xlsx format) uploaded by users and perform various calculations on the data within the file.
 
@@ -34,8 +34,8 @@ This application is designed to process Excel files (.xlsx format) uploaded by u
 
 1. **Clone the repository**
 ``` bash
-git clone https://github.com/your-username/excel-file-processor.git
-cd excel-file-processor
+git clone https://github.com/your-username/excel-app.git
+cd excel-app
 ```
 2. **Frontend Setup**:
 - Navigate to the `frontend` directory.
