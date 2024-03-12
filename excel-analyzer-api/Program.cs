@@ -53,7 +53,9 @@ static List<int> ShortestSeriesToNumber(List<int> numbers, int target)
         }
 
         // Memoize the result for the current target
+#pragma warning disable CS8601 // Possible null reference assignment.
         memo[remainingTarget] = shortestSeries;
+#pragma warning restore CS8601 // Possible null reference assignment.
 
         // Return the shortest series for the current target
         return shortestSeries;
@@ -178,52 +180,48 @@ app.MapPost("/api/upload", ([FromForm] IFormFile file) =>
     {
         return Results.BadRequest("Only .xlsx files are allowed.");
     }
-    using (var stream = new MemoryStream())
-    {
-        System.Console.WriteLine(stream);
-        file.CopyTo(stream);
-        using (var package = new ExcelPackage(stream))
-        {
-            var worksheet = package.Workbook.Worksheets.First();
-            var numbers = worksheet.Cells["A:A"].Select(cell => Convert.ToInt32(cell.Value)).ToList();
-            var divisibleBy2 = numbers.Where(num => num % 2 == 0).Select(num => num.ToString()).ToArray();
-            var divisibleBy7 = numbers.Where(num => num % 7 == 0).Select(num => num.ToString()).ToArray();
-            var divisibleBy3 = numbers.Where(num => num % 3 == 0).Select(num => num.ToString()).ToArray();
-            var mean = numbers.Average();
-            var median = numbers.OrderBy(num => num).ToList()[numbers.Count / 2];
+    using var stream = new MemoryStream();
 
-            var shortestTo65 = ShortestSeriesToNumber(numbers, 65);
-            var shortestTo35 = ShortestSeriesToNumber(numbers, 35);
-            var sumofOdd = SumOfOddNumbers(numbers);
-            var sumOfEven = SumOfEvenNumbers(numbers);
-            var SumOfSingleDigit = SumOfSingleDigitNumbers(numbers);
-            var SumOfDoubleDigit = SumOfDoubleDigitNumbers(numbers);
-            var output = new
-            {
-                divisibleBy2,
-                divisibleBy7,
-                divisibleBy3,
-                mean,
-                median,
-                shortestTo65,
-                shortestTo35,
-                sumOfEven,
-                sumofOdd,
-                SumOfSingleDigit,
-                SumOfDoubleDigit,
-            };
-            return Results.Ok(output);
-        }
-    }
+    file.CopyTo(stream);
+    using var package = new ExcelPackage(stream);
+    var worksheet = package.Workbook.Worksheets.First();
+    var numbers = worksheet.Cells["A:A"].Select(cell => Convert.ToInt32(cell.Value)).ToList();
+    var divisibleBy2 = numbers.Where(num => num % 2 == 0).Select(num => num.ToString()).ToArray();
+    var divisibleBy7 = numbers.Where(num => num % 7 == 0).Select(num => num.ToString()).ToArray();
+    var divisibleBy3 = numbers.Where(num => num % 3 == 0).Select(num => num.ToString()).ToArray();
+    var mean = numbers.Average();
+    var median = numbers.OrderBy(num => num).ToList()[numbers.Count / 2];
+
+    var shortestTo65 = ShortestSeriesToNumber(numbers, 65);
+    var shortestTo35 = ShortestSeriesToNumber(numbers, 35);
+    var sumofOdd = SumOfOddNumbers(numbers);
+    var sumOfEven = SumOfEvenNumbers(numbers);
+    var SumOfSingleDigit = SumOfSingleDigitNumbers(numbers);
+    var SumOfDoubleDigit = SumOfDoubleDigitNumbers(numbers);
+    var output = new
+    {
+        divisibleBy2,
+        divisibleBy7,
+        divisibleBy3,
+        mean,
+        median,
+        shortestTo65,
+        shortestTo35,
+        sumOfEven,
+        sumofOdd,
+        SumOfSingleDigit,
+        SumOfDoubleDigit,
+    };
+    return Results.Ok(output);
 
 }).DisableAntiforgery();
 
-app.MapGet("antiforgery/token", (IAntiforgery antiforgery, HttpContext context) =>
-{
-    var tokens = antiforgery.GetAndStoreTokens(context);
-    var xsrfToken = tokens.RequestToken!;
-    return Results.Ok(xsrfToken);
-});
+// app.MapGet("antiforgery/token", (IAntiforgery antiforgery, HttpContext context) =>
+// {
+//     var tokens = antiforgery.GetAndStoreTokens(context);
+//     var xsrfToken = tokens.RequestToken!;
+//     return Results.Ok(xsrfToken);
+// });
 
 
 
