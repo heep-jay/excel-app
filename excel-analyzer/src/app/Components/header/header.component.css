@@ -1,0 +1,55 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.3rem 2rem;
+}
+
+.header-profile,
+.header-btns {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.header-btns button {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1.8rem;
+  border-radius: 5px;
+  border: 0.2px solid #227346;
+  cursor: pointer;
+  font-size: clamp(0.71875rem, 0.6612rem + 0.2632vw, 0.875rem);
+  white-space: nowrap;
+}
+.header-btns span {
+  color: #227346;
+}
+
+.header-profile {
+  /* border: 0.2px solid #227346;
+  border-radius: 6px;
+  padding: 0.2rem; */
+}
+.header-profile p {
+  font-size: clamp(0.8125rem, 0.7434rem + 0.3158vw, 1rem);
+}
+
+.header-profile span {
+  cursor: pointer;
+  color: #227346;
+}
+
+@media screen and (max-width: 645px) {
+  .header-btns span {
+    display: none;
+  }
+  .header-btns button {
+    padding: 0.5rem;
+  }
+  .header-profile p {
+    display: none;
+  }
+}

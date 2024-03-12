@@ -1,0 +1,115 @@
+<div class="content">
+  <div class="breadcrumb">
+    <p>Home/Raw Upload</p>
+  </div>
+  <div class="content-container">
+    <form class="raw-upload" (ngSubmit)="onSubmit($event)">
+      <h1>Raw Upload</h1>
+      <div class="upload-container">
+        <label for="file">Upload Document</label>
+
+        <div class="upload-input">
+          <input type="text" value="{{ name }}" readonly />
+          <div class="file-input-btn">
+            <label for="file">Select File</label>
+            <input
+              type="file"
+              id="file"
+              (change)="onFileSelected($event)"
+              name="file"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="util-btns">
+        <button class="reset" type="button" (click)="reset()">
+          Reset Upload content</button
+        ><button class="upload" type="submit">Run Upload</button>
+      </div>
+    </form>
+    <div class="upload-results">
+      <div class="breadcrumb">
+        <p>
+          Output <span class="material-symbols-outlined">info</span> Please
+          ensure all outputs are separated by comma
+        </p>
+      </div>
+      <div class="output-box">
+        <div class="left-output">
+          <div class="input_div">
+            <label for="">All Numbers divisible By 2 </label>
+            <div class="text-div">
+              <!-- Display non-red items -->
+
+              <span>{{ nonLastItems }}</span
+              >,
+              <!-- Display last three items in red -->
+              <span class="red">{{ lastItems }}</span>
+            </div>
+          </div>
+          <div class="input_div">
+            <label for="">All Numbers divisible By 7 </label>
+            <div class="text-div">
+              <span class="red">{{ lastItems2 }}</span
+              >,
+              <span>{{ nonLastItems2 }}</span>
+            </div>
+          </div>
+          <div class="input_div">
+            <label for="">All Numbers divisible By 3 </label>
+            <div class="text-div">
+              <!-- Display non-red items -->
+              <span>{{ nonLastItems3 }}</span
+              >,
+              <!-- Display last three items in red -->
+              <span class="red">{{ lastItems3 }}</span>
+            </div>
+          </div>
+          <div class="double_input">
+            <div class="input_div">
+              <label for="">Mean</label>
+              <input type="text" value="{{ mean }}" readonly />
+            </div>
+            <div class="input_div">
+              <label for="">Median</label>
+              <input type="text" value="{{ median }}" readonly />
+            </div>
+          </div>
+          <div class="input_div">
+            <label for=""
+              >Shortest series of numbers to get to 65 when added up</label
+            >
+            <input type="text" value="{{ shortestTo65 }}" readonly />
+          </div>
+          <div class="input_div">
+            <label for=""
+              >Shortest series of numbers to get to 35 when added up</label
+            >
+            <input type="text" value="{{ shortestTo35 }}" readonly />
+          </div>
+        </div>
+        <div class="right-output">
+          <div class="input_div">
+            <label for="">Sum of even No</label>
+            <input type="text" value="{{ sumOfEven }}" readonly />
+          </div>
+          <div class="input_div">
+            <label for="">Sum off odd No</label>
+            <input type="text" value="{{ sumofOdd }}" readonly />
+          </div>
+          <div class="input_div">
+            <label for="">Sum of single digits</label>
+            <input type="text" value="{{ sumOfSingleDigit }}" readonly />
+          </div>
+          <div class="input_div">
+            <label for="">Sum of double digits</label>
+            <input type="text" value="{{ sumOfDoubleDigit }}" readonly />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 
+<button (click)="uploadFile()">Upload</button> -->

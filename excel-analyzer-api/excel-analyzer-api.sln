@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "excel-analyzer-api", "excel-analyzer-api.csproj", "{EBD29914-58A5-4962-B4D1-87AF1C8E0882}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBD29914-58A5-4962-B4D1-87AF1C8E0882}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBD29914-58A5-4962-B4D1-87AF1C8E0882}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBD29914-58A5-4962-B4D1-87AF1C8E0882}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBD29914-58A5-4962-B4D1-87AF1C8E0882}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C0F93A1-0B45-4082-87A8-9FB15049E54F}
+	EndGlobalSection
+EndGlobal

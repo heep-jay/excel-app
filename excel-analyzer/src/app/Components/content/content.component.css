@@ -1,0 +1,165 @@
+.content {
+  width: 100%;
+}
+.breadcrumb {
+  width: 100%;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  font-size: 13px;
+  padding: 0.7rem;
+}
+.breadcrumb p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.content-container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.content-container h1 {
+  font-size: clamp(0.875rem, 0.6447rem + 1.0526vw, 1.5rem);
+}
+.raw-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-file {
+  height: 30px;
+}
+
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.util-btns {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.util-btns button {
+  font-size: clamp(0.6875rem, 0.6184rem + 0.3158vw, 0.875rem);
+}
+
+.upload-input {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.upload-input input {
+  height: 35px;
+  width: 100%;
+  max-width: 230px;
+  padding: 0.2rem 0.5rem;
+}
+.file-input-btn {
+  flex-grow: 1;
+}
+
+.file-input-btn input[type="file"] {
+  display: none;
+}
+
+.file-input-btn label {
+  padding: 0.5rem 1rem;
+  background-color: #227346;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: clamp(0.775rem, 0.6184rem + 0.3158vw, 1rem);
+}
+.reset,
+.upload {
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.reset {
+  background: #fec32b;
+}
+.upload {
+  background: #227346;
+}
+.upload-results {
+  /* border: 0.4px solid #227346; */
+  min-height: 500px;
+  border-top: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+.output-box {
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.left-output {
+  flex: 0.6;
+}
+.left-output,
+.right-output {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.right-output {
+  flex: 0.4;
+}
+.input_div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+}
+.input_div label {
+  font-size: clamp(0.75rem, 0.6809rem + 0.3158vw, 0.9375rem);
+  color: #2b2525;
+}
+.input_div input {
+  height: 40px;
+  outline: none;
+  border: 0.1px solid #7be0a9;
+  padding: 1rem;
+}
+
+.red {
+  color: red;
+}
+.text-div {
+  height: 40px;
+  outline: none;
+  border: 0.1px solid #7be0a9;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+.double_input {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 645px) {
+  .output-box {
+    flex-direction: column;
+  }
+  .left-output,
+  .right-output {
+    flex: 1;
+    width: 100%;
+  }
+}
