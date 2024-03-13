@@ -80,7 +80,8 @@
   font-size: clamp(0.775rem, 0.6184rem + 0.3158vw, 0.8rem);
 }
 .reset,
-.upload {
+.upload,
+.download {
   color: #fff;
   border: none;
   padding: 0.5rem 1rem;
@@ -88,6 +89,14 @@
   cursor: pointer;
 }
 
+.download {
+  max-width: 180px;
+  background: none;
+  color: #227346;
+  border-bottom: 0.1px solid #227346;
+  border-radius: 0;
+  padding: 0.2rem 0.6rem;
+}
 .reset {
   background: #fec32b;
 }
@@ -107,7 +116,7 @@
   padding: 1rem;
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .left-output {
@@ -121,6 +130,10 @@
 }
 .right-output {
   flex: 0.4;
+  border: 0.4px solid #7be0a9;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 .input_div {
   display: flex;
@@ -168,5 +181,8 @@
   .right-output {
     flex: 1;
     width: 100%;
+  }
+  .right-output {
+    box-shadow: none;
   }
 }

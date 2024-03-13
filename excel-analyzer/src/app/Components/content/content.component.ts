@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ApiServiceService } from 'src/app/Services/api-service.service';
 
@@ -42,7 +43,7 @@ export class ContentComponent {
   lastItems3: string[] = [];
   nonLastItems3: string[] = [];
 
-  constructor(private api: ApiServiceService) {}
+  constructor(private api: ApiServiceService, private http: HttpClient) {}
 
   onFileSelected(event: any): void {
     this.selectedFile = event.target.files[0];
@@ -115,5 +116,24 @@ export class ContentComponent {
   getNonRedItems3(array: string[], text: number): string[] {
     this.nonLastItems3 = array.slice(0, text);
     return array.slice(0, text); // Get items excluding the last three
+  }
+
+  downloadExcel(): void {
+    const excelFilePath = '/assets/docs/Book1.xlsx'; // Adjust the path to your Excel file
+    this.http
+      .get(excelFilePath, { responseType: 'blob' })
+      .subscribe((data: Blob) => {
+        const blob = new Blob([data], {
+          type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        document.body.appendChild(a);
+        a.style.display = 'none';
+        a.href = url;
+        a.download = 'Book1.xlsx'; // Adjust the filename as needed
+        a.click();
+        window.URL.revokeObjectURL(url);
+      });
   }
 }
